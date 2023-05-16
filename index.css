@@ -1,4 +1,11 @@
-@keyframes play120 {
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@keyframes animacaoLogo {
   0% {
     background-position: 0px 0px;
   }
@@ -7,7 +14,19 @@
   }
 }
 
-.shapeshifter {
+@keyframes rotarBackground {
+  0% {
+    /* transform: rotate(-10deg); */
+    background-position: 0px 0px;
+  }
+  100% {
+    /* background-position: 100px 0px; */
+
+    transform: rotate(360deg);
+  }
+}
+
+.animacao {
   animation-duration: 2000ms;
   animation-timing-function: steps(120);
   animation-iteration-count: infinite;
@@ -18,20 +37,27 @@
   margin: 26px;
 }
 
-.shapeshifter.play {
-  animation-name: play120;
+.animacao.play {
+  animation-name: animacaoLogo;
+  background-image: url(animacao.svg);
 }
 
 .animacao-background {
   position: absolute;
   width: 60px;
   height: 60px;
-  background-image: url(background.svg);
   background-position: cover;
+  background-image: url(background.svg);
 }
 
-.animacao {
-  position: absolute;
-  margin: 100px;
+.animacao-background.play-bg {
+  animation-duration: 4000ms;
+  animation-timing-function: steps(200);
+  animation-iteration-count: infinite;
+  animation-name: rotarBackground;
+}
+
+.animacao-container {
+  /* margin: 100px; */
   scale: 10;
 }
